@@ -8,6 +8,9 @@ from django.contrib.auth.models import AbstractUser
 
 
 class Lecture(models.Model):
+    class Meta:
+        verbose_name = 'Modul'
+        verbose_name_plural = 'Moduler'
     name = models.CharField(max_length=128)
     description = models.TextField()
     image = models.FileField(null=True, upload_to='static/uploads/')
@@ -19,10 +22,14 @@ class Lecture(models.Model):
         return self.__repr__()
 
 class Inquiry(models.Model):
+    class Meta():
+        verbose_name = 'Hendvendelse'
+        verbose_name_plural = 'Hendvendelse'
+    
     title = models.CharField(max_length=64, verbose_name='Tittel', blank=True)
     description = models.TextField(verbose_name='Beskrivelse')
     name = models.CharField(max_length=64, verbose_name='Ditt navn')
-    email = models.EmailField(null=True, verbose_name='Din epost')
+    email = models.EmailField(null=True, verbose_name='Din epost', blank=True)
 
     def __repr__(self):
         return self.name

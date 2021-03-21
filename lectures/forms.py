@@ -25,8 +25,8 @@ class InquiryForm(forms.ModelForm):
                 Column('description')
             ),
             FormActions(
-                Submit('send','Send inn', css_class='btn-success'),
-                Submit('cancel','Avbryt',css_class='btn-danger'),
+                Submit('send','Send tilbakemelding', css_class='btn-success'),
+                #Submit('cancel','Avbryt',css_class='btn-danger'),
             )
         )
         
