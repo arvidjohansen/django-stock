@@ -1,7 +1,9 @@
 from django.shortcuts import render
-from django.views.generic import TemplateView 
+from django.views.generic import TemplateView , DetailView, CreateView
 from django.http import HttpResponse
-from lectures.models import Lecture
+from django.urls import reverse_lazy
+from lectures.models import Lecture, Inquiry
+
 # Create your views here.
 
 def home(request):
@@ -18,15 +20,22 @@ def home(request):
 
     return render(request, 'lectures/home.html', context)
 
+class LectureDetailView(DetailView):
+    model = Lecture
 
 
-class SimpleView (TemplateView):
+class InquiryCreateView(CreateView):
+    success_url = reverse_lazy('feedback_success')
+    model = Inquiry
+    fields = ['name','email', 'description']
 
-    template_name = 'Simple.html'
+class InquirySuccessView (TemplateView):
+
+    template_name = 'lectures/inquiry_success.html'
 
     def get_context_data(self,**kwargs):
-        context = super(SimpleView, self).get_context_data(**kwargs)
-        context.update({
-            'navn':'Arvid',
-            })
-        return contex
+        context = super(InquirySuccessView, self).get_context_data(**kwargs)
+        #context.update({
+        #    'navn':'Arvid',
+        #    })
+        return context

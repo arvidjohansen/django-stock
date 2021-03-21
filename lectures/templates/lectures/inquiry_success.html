@@ -1,0 +1,26 @@
+{% extends "lectures/base.html" %}
+{% load bootstrap5 %}
+{% load crispy_forms_tags %}
+
+{% block content %}
+<main class="container">
+
+  <div class="starter-template text-center py-5 px-3">
+    <h1>Takk for din tilbakemelding!</h1>
+        
+    <p class="lead">
+    
+    Vi tar kontakt med deg på epost hvis det er behov.
+    <br><br>
+    <a href="{% url 'home'  %}">
+    Klikk her for å gå til forsiden.
+    </a>
+    </p>
+
+  </div>
+
+
+</main><!-- /.container -->
+
+
+{% endblock content %}
