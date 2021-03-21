@@ -11,7 +11,7 @@ context_settings = {
     'headline':'Velkommen til IM-skolen!',
     'headline_over':'Velkommen til',
     'introduksjon':'Her finner du alt du trenger for å lære om IT og multimedia',
-    'author':'Kuben Yrkesarena',
+    'author':'Arvid Johansen',
 }
 
 def home(request):
