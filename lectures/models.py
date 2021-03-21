@@ -10,6 +10,7 @@ from django.contrib.auth.models import AbstractUser
 class Lecture(models.Model):
     name = models.CharField(max_length=128)
     description = models.TextField()
+    image = models.FileField(null=True, upload_to='static/uploads/')
     
     #fk = models.ForeignKey('app.model', on_delete=models.CASCADE)
     def __repr__(self):

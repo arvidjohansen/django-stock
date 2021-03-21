@@ -1,10 +1,18 @@
 {% extends "lectures/base.html" %}
+{% load static %}
 
 {% block content %}
 <main class="container">
 
   <div class="starter-template text-center py-5 px-3">
     <h1>{{headline}}</h1>
+    <!--
+
+    <img src="{% static 'img/logo/IM-Kuben-sort-650px.png' %}"
+    style="width:30%"
+    >
+    </img>
+    -->
     <p class="lead">{{introduksjon}}</p>
   </div>
 
@@ -13,17 +21,28 @@
 
   <div class="row row-cols-1 row-cols-sm-2 row-cols-md-3 g-3">
     {% for lecture in lectures %}
-    <div class="col" style="border-radius:50px">
-      <div class="card shadow-sm" style="border-radius:15px">
+    <div class="col" >
+      <div class="card shadow-sm" style="border-radius:15px; "
+      >
+        
+        <img src="{{lecture.image}}"
+        style="
+        border-radius:15px 15px 0px 0px
+        "
+        >
         <svg class="bd-placeholder-img card-img-top"
           style="border-radius:15px 15px 0px 0px" 
-          width="100%" height="225" xmlns="http://www.w3.org/2000/svg" 
-          role="img" aria-label="Placeholder: Thumbnail" preserveAspectRatio="xMidYMid slice" 
+          width="100%" height="50px" xmlns="http://www.w3.org/2000/svg" 
+          role="img" aria-label="Placeholder: Thumbnail" 
+          preserveAspectRatio="xMidYMid slice" 
           focusable="false">
-          <title>{{lecture.name}}</title>
-            <rect width="100%" height="100%" fill="#55595c"></rect>
-            <text x="50%" y="50%" fill="#eceeef" dy=".3em">{{lecture.name}}</text>
+            <rect width="100%" height="100%" 
+            fill="#ffffff"
+            ></rect>
+            <text x="50%" y="50%" fill="#000000" dy=".3em">{{lecture.name}}</text>
         </svg>
+
+        
         <div class="card-body">
           <p class="card-text">{{lecture.description}}</p>
           <div class="d-flex justify-content-between align-items-center">
@@ -38,17 +57,32 @@
                     <button type="button" class="btn btn-md btn-outline-secondary">Start</button>
                 </a>
             </div>
-            <small class="text-muted">ca 20 min</small>
+            <small class="text-muted">Varighet: 1 dag</small>
           </div>
         </div>
       </div>
     </div>
     {% endfor %}
+    
     <!--
 
     <div class="col">
-      <div class="card shadow-sm">
-        <svg class="bd-placeholder-img card-img-top" width="100%" height="225" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Placeholder: Thumbnail" preserveAspectRatio="xMidYMid slice" focusable="false"><title>Placeholder</title><rect width="100%" height="100%" fill="#55595c"></rect><text x="50%" y="50%" fill="#eceeef" dy=".3em">Thumbnail</text></svg>
+      <div class="card shadow-sm" style="border-radius:15px">
+        <svg class="bd-placeholder-img card-img-top" 
+        style="border-radius:15px 15px 0px 0px" 
+        width="100%" height="225" 
+        xmlns="http://www.w3.org/2000/svg" role="img" 
+        aria-label="Placeholder: Thumbnail" 
+        preserveAspectRatio="xMidYMid slice" 
+        focusable="false">
+        <title>Placeholder</title>
+        
+        
+
+        <rect width="100%" height="100%" fill="#55595c"></rect>
+        <text x="50%" y="50%" fill="#eceeef" dy=".3em">Superbra kurs</text>
+        
+        </svg>
 
         <div class="card-body">
           <p class="card-text">This is a wider card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
@@ -63,6 +97,7 @@
       </div>
     </div>
     -->
+
   </div> <!--row -->
 </div> <!--Container-->
 {% endblock content %}

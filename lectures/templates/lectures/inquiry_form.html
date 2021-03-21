@@ -17,23 +17,23 @@
     Uansett tar vi gjerne i mot din hendvendelse!
     </p>
 
+    {% comment "old" %}
     <form action="" method="post" class="form uniform">
         {% csrf_token %}
         {{form|crispy}}
         
         
-        {% comment %}
-        
-        <div class="form-group">
-        <input type="text" name="name" maxlength="64" class="form-control" placeholder="Name" title="" required="" id="id_name"></div>
-        {{form.name}}
-        
-        {% bootstrap_field form.name show_label=False %}
-        {% bootstrap_field form.email show_label=False %}
-        {% endcomment %}
         {% buttons %}
             <button type="submit" class="btn btn-primary">Send inn</button>
         {% endbuttons %}
+    </form>
+    {% endcomment %}
+    
+    <form action="" method="post" class="form">
+    
+        {% csrf_token %}
+        {% crispy form form.helper %}
+        
     </form>
   </div>
 
