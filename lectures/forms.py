@@ -10,6 +10,11 @@ class InquiryForm(forms.ModelForm):
     class Meta():
         model = Inquiry
         fields = ['name', 'email','description']
+        widgets = {
+            'description':forms.Textarea(attrs={
+                'cols':40, 'rows':10
+            })
+        }
     
     def __init__(self, *args, **kwargs):
         super().__init__(*args,**kwargs)

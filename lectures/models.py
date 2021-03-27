@@ -14,6 +14,7 @@ class Lecture(models.Model):
     name = models.CharField(max_length=128)
     description = models.TextField()
     image = models.FileField(null=True, upload_to='static/uploads/')
+    #author = models.CharField(max_length=128,default='Marie Samuelsen')
     
     #fk = models.ForeignKey('app.model', on_delete=models.CASCADE)
     def __repr__(self):
@@ -27,7 +28,7 @@ class Inquiry(models.Model):
         verbose_name_plural = 'Hendvendelse'
     
     title = models.CharField(max_length=64, verbose_name='Tittel', blank=True)
-    description = models.TextField(verbose_name='Beskrivelse')
+    description = models.CharField(max_length=512, verbose_name='Beskrivelse')
     name = models.CharField(max_length=64, verbose_name='Ditt navn')
     email = models.EmailField(null=True, verbose_name='Din epost', blank=True)
 
