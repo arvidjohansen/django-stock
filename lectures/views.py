@@ -16,7 +16,7 @@ context_settings = {
 
 def home(request):
     active_tab = 'home'
-    lectures = Lecture.objects.all()
+    lectures = Lecture.objects.filter(active=True)
 
     context = context_settings.copy()
     

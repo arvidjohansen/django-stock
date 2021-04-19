@@ -5,7 +5,7 @@ from lectures.models import Lecture, Inquiry
 
 class LectureManager(admin.ModelAdmin):
     
-    list_display = ['name', 'description']
+    list_display = ['name', 'description','active']
     search_fields = ['name']
 
 

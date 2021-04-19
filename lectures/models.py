@@ -14,6 +14,7 @@ class Lecture(models.Model):
     name = models.CharField(max_length=128)
     description = models.TextField()
     image = models.FileField(null=True, upload_to='static/uploads/')
+    active = models.BooleanField(default=True)
     #author = models.CharField(max_length=128,default='Marie Samuelsen')
     
     #fk = models.ForeignKey('app.model', on_delete=models.CASCADE)
